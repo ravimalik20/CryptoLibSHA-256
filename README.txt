@@ -10,6 +10,10 @@ Happy Learning :D
 
 Information about various files:
 
-1. sha.h : This file contains the business logic of the SHA-256 hashing algorithm.
-2. hash_file.h : This file uses the sha.h file to provide functions to hash any file.
-3. test.c : This is the test file used to generate hash of a file and is build on the hash_file.h file.
+1. LICENSE.txt : Contains the details of the license applied to this project.
+2. sha.h : This file contains the business logic of the SHA-256 hashing algorithm.
+3. hash_file.h : This file uses the sha.h file to provide functions to hash any file.
+4. hash_string.h : This file uses the sha.h file to provide functions to hash a string.
+5. Testing:
+	5.1. generate_hash_file.c : A small interface around hash_file.h for testing purpose.
+	5.2. generate_hash_string.c : A small interface around hash_string.h for testing purpose.
