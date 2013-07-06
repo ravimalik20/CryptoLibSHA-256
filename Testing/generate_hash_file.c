@@ -29,5 +29,8 @@ void main(int argc, char* argv[])
 	fp=fopen(argv[1],"rb");
 	struct hash hs;
 	hs=hash_file(fp);
-	print_hash(&hs);
+	//print_hash(&hs);
+	char s[65];
+	hash_to_hex_string(&hs,s);
+	printf("Hash String:%s\n",s);
 }
