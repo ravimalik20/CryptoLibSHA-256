@@ -27,5 +27,8 @@
 void main(int argc, char* argv[])
 {	struct hash hs;
 	hs=hash_string(argv[1]);
-	print_hash(&hs);
+	//print_hash(&hs);
+	char s[65];
+	hash_to_hex_string(&hs,s);
+	printf("Hash String:%s\n",s);
 }

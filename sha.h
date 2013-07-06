@@ -56,6 +56,44 @@ struct message
 
 /*########### Primitive Functions #############*/
 
+char* int_to_hex_string(unsigned int a)
+{	int r;
+	char s[9]="00000000\0";
+	int i=7;	
+	while(a!=0)
+	{	r=a%16;
+		a=a/16;
+		if(r>=10)
+		{	switch(r)
+			{	case 10:
+					s[i]='a';
+					break;
+				case 11:
+					s[i]='b';
+					break;
+				case 12:
+					s[i]='c';
+					break;
+				case 13:
+					s[i]='d';
+					break;
+				case 14:
+					s[i]='e';
+					break;
+				case 15:
+					s[i]='f';
+					break;
+			}
+		}
+		else
+		{	s[i]=(char)(r+48);
+		}
+		i--;
+	}
+	s[8]=NULL;
+	return s;
+}
+
 unsigned long file_size(FILE *fp)
 {	fseek(fp,0,SEEK_END);
 	unsigned long size=ftell(fp);
@@ -118,6 +156,24 @@ void print_message(struct message *ms)
 	{	printf("%x ",ms->m[i]);
 	}
 	printf("\n");
+}
+
+void hash_to_hex_string(struct hash *hs, char *str)
+{	unsigned int a;			// Temp variable to store hash element
+	int i=63;		// Counter to string
+	int j;			// Counter for hash	
+	int r;			// Digit to be converted to hexadecimal	
+	char *temp;
+	int k;	
+	for(j=7;j>=0;j--)
+	{	a=hs->h[j];	
+		temp=int_to_hex_string(a);
+		for(k=7;k>=0;k--)
+		{	str[i]=temp[k];
+			i--;
+		}
+	}
+	str[64]='\0';
 }
 
 // Initialise the hash to be computed.
