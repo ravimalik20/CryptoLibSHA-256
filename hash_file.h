@@ -147,7 +147,7 @@ struct hash hash_file(FILE *fp)
 {	struct hash hs;
 	init_hash(&hs);
 	struct message ms;	
-	unsigned long size=file_size(fp);
+	unsigned long size=file_size_SHA(fp);
 	int a,b;
 	int i,j;
 	a=size/64;	// Number of 64 byte blocks fetchable

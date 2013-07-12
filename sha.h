@@ -94,7 +94,7 @@ char* int_to_hex_string(unsigned int a)
 	return s;
 }
 
-unsigned long file_size(FILE *fp)
+unsigned long file_size_SHA(FILE *fp)
 {	fseek(fp,0,SEEK_END);
 	unsigned long size=ftell(fp);
 	fseek(fp,0,SEEK_SET);
