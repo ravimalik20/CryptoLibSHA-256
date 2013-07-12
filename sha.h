@@ -176,6 +176,22 @@ void hash_to_hex_string(struct hash *hs, char *str)
 	str[64]='\0';
 }
 
+unsigned char* hash_to_string(struct hash *hs)
+{	unsigned char str[33];
+	int i=0;		// Counter on String
+	int j;			// Counter on the hash element which is an int
+	int k=0;		// Counter on hash
+	while(i<32)
+	{	for(j=3;j>=0;j--)
+		{	str[i]=(unsigned char)(hs->h[k]>>(8*j));
+			i++;	
+		}
+		k++;
+	}
+	str[32]='\0';
+	return str;
+}
+
 // Initialise the hash to be computed.
 void init_hash(struct hash *hs)
 {	hs->h[0]=0x6a09e667; 
