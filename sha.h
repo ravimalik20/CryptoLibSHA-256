@@ -20,6 +20,7 @@
 *==========================================================================================*/
 
 #include<stdio.h>
+#include<stdlib.h>
 
 /******************************************
 
@@ -58,7 +59,7 @@ struct message
 
 char* int_to_hex_string(unsigned int a)
 {	int r;
-	char s[9]="00000000\0";
+	char *s = malloc(sizeof(char)*9);
 	int i=7;	
 	while(a!=0)
 	{	r=a%16;
@@ -90,7 +91,7 @@ char* int_to_hex_string(unsigned int a)
 		}
 		i--;
 	}
-	s[8]=NULL;
+	s[8]='\0';
 	return s;
 }
 
@@ -177,7 +178,8 @@ void hash_to_hex_string(struct hash *hs, char *str)
 }
 
 unsigned char* hash_to_string(struct hash *hs)
-{	unsigned char str[33];
+{
+	unsigned char *str = malloc(sizeof(char)*33);
 	int i=0;		// Counter on String
 	int j;			// Counter on the hash element which is an int
 	int k=0;		// Counter on hash
