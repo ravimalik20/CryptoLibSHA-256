@@ -54,7 +54,7 @@ void hash_lt_64(struct hash *hs,char *s,int *index,unsigned long size)
 	int i=0;		// Counter of the message
 	int b=0;
 	int *j=index;	// Index of the String
-	while(s[*j]!=NULL)
+	while(s[*j] != '\0')
 	{	if(b==4)
 		{	b=0;
 			i++;
