@@ -173,6 +173,7 @@ void hash_to_hex_string(struct hash *hs, char *str)
 		{	str[i]=temp[k];
 			i--;
 		}
+		free(temp);
 	}
 	str[64]='\0';
 }
